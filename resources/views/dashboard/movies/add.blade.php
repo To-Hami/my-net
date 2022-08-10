@@ -29,6 +29,7 @@
                 <div class="col-12">
                     <div class=""
                          id="movie__raper"
+                         style="display: {{$errors->any()?'none':'flex'}} "
                          onclick="document.getElementById('movie__file-input').click()"
                     >
                         <i class="fa fa-video fa-2x"></i>
@@ -40,15 +41,17 @@
                                style="display:none">
                     </div>
 
-                    <form id="movie__properties" action="{{route('dashboard.movies.update',$movie->id)}}" method="post"
-                          style="display: none">
+                    <form id="movie__properties"
+                          action="{{route('dashboard.movies.update',['movie' => $movie->id, 'type' => 'publish'])}}"
+                          method="post"
+                          style="display: {{$errors->any()?'block':'none'}}" enctype="multipart/form-data">
                         @csrf
-                        @method('post')
+                        @method('PUT')
 
                         @include('dashboard.partials._errors')
 
 
-                        <div class="form-group">
+                        <div class="form-group" style="display: {{$errors->any()?'none':'block'}} ">
                             <lable id="movieUploading__statues" class="my-2">Uploading</lable>
 
                             <div class="progress">
@@ -63,35 +66,60 @@
                         {{-- name--}}
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name" id="movie__name" class="form-control">
+                            <input type="text" name="name" value="{{old('name',$movie->name)}}"
+                                   id="movie__name" class="form-control">
                         </div>
                         {{-- description--}}
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea name="description" class="form-control"></textarea>
+                            <textarea name="description" class="form-control">
+                               {{old('description',$movie->description)}}
+                            </textarea>
+                        </div>
+
+                        {{-- categories--}}
+                        <div class="form-group">
+                            <label>Categories</label>
+                            <select class="form-control select2 " name="categories[]" multiple>
+                                <option value="" disabled>Select categories</option>
+                                @foreach($categories as $category)
+                                    <option
+                                        value="{{$category->id}}"
+                                        {{in_array($category->id,$movie->categories->pluck('id')->toArray()) ? 'selected' : ''}}>
+                                        {{$category->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         {{-- poster--}}
                         <div class="form-group">
                             <label>Poster</label>
-                            <input type="file" name="poster" class="form-control">
+                            <input type="file" name="poster" class="form-control poster">
+                            <img class="poster-preview py-2 img-thumbnail" style="max-width: 300px;max-height: 250px"
+                                 src="">
                         </div>
                         {{-- image--}}
                         <div class="form-group">
                             <label>Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <input type="file" name="image" class="form-control image">
+                            <img class="image-preview py-2 img-thumbnail" style="max-width: 300px;max-height: 250px"
+                                 src="">
                         </div>
                         {{-- rate--}}
                         <div class="form-group">
                             <label>Rate</label>
-                            <input type="text" name="rate" class="form-control">
+                            <input type="text" name="rating" value="{{old('rating',$movie->rating)}}"
+                                   class="form-control">
                         </div>
                         {{-- year--}}
                         <div class="form-group">
                             <label>Year</label>
-                            <input type="number" name="year" class="form-control">
+                            <input type="text" value="{{old('year',$movie->year)}}" name="year" class="form-control">
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary bt-lg mt-3" type="submit">Publish
+                            <button class="btn btn-primary bt-lg mt-3"
+                                    type="submit" id="movie__submit-button"
+                                    style="display: {{$errors->any()?'block':'none'}} ">Publish
                                 <i class="fa fa-plus"> </i>
                             </button>
                         </div>

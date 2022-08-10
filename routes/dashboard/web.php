@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(function () {
 
 
-    Route::get('/', 'dashboardController@index')->name('index');
+    Route::get('/dashboard', 'dashboardController@index')->name('index');
 
 
     //resource routes

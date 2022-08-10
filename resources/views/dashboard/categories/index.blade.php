@@ -34,15 +34,16 @@
             <div class="col-12 ">
                 @if($categories->count() > 0)
 
-                    <table class="table table-hover">
+                    <table class="table table-hover  table-responsive">
+
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Action</th>
+                            <th style="width: 40%">Name</th>
+                            <th> Movies Count</th>
+                            <th style="width: 40%">Action</th>
                         </tr>
                         </thead>
-
 
                         <tbody>
 
@@ -50,14 +51,16 @@
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td>{{$category->name}}</td>
+                                <td>{{$category->movies_count}}</td>
                                 <td>
                                     <a href="{{route('dashboard.categories.edit',$category->id)}}"
-                                       class="btn btn-primary"> <i class="fa fa-gear"></i> Edit</a>
+                                       class="btn btn-primary disabled"> <i class="fa fa-gear"></i> Edit</a>
                                     <form action="{{route('dashboard.categories.destroy',$category->id)}}"
                                           method="post" style="display: inline-block">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="delete btn btn-danger"><i class="fa fa-trash"></i>
+                                        <button type="submit" class="delete btn btn-danger disabled" disabled><i
+                                                class="fa fa-trash disabled"></i>
                                             Delete
                                         </button>
                                     </form>

@@ -44,6 +44,7 @@ $(document).ready(function () {
 
                                 $("#movieUploading__statues").html('Processing Done');
                                 $("#movie__upload-progress").parent().css('display', 'none');
+                                $("#movie__submit-button").css('display', 'block')
 
                             }
                         },

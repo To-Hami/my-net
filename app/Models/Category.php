@@ -11,7 +11,15 @@ class Category extends Model
 
     protected $guarded = [];
 
-    //attr
+
+    //function=======================================================================
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_category');
+    }
+
+    //attr==========================================================================
 
     public function getNameAttribute($value)
     {
@@ -19,7 +27,7 @@ class Category extends Model
     }
 
 
-    //scope
+    //scope ========================================================================
 
     public function scopeWhenSearch($query, $search)
     {

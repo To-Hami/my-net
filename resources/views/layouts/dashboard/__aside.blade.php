@@ -33,13 +33,19 @@
             </a>
         </li>
 
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-gear"></i><span class="app-menu__label">Setting</span><i
-                    class="treeview-indicator"></i></a>
+
+        <li class="treeview">
+            <a class="app-menu__item" href="#" data-toggle="treeview">
+                <i class="app-menu__icon fa fa-gear"></i>
+                <span class="app-menu__label">Setting</span>
+                <i class="treeview-indicator"></i>
+            </a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="{{route('dashboard.setting.social_login')}}"><i
-                            class="icon fa fa-circle-o"></i>
-                        Social Login</a>
+                <li>
+                    <a class="treeview-item" href="{{route('dashboard.setting.social_login')}}">
+                        <i class="icon fa fa-circle-o"></i>
+                        Social Login
+                    </a>
                 </li>
 
                 <li><a class="treeview-item" href="{{route('dashboard.setting.social_link')}}"><i

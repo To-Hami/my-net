@@ -10,7 +10,8 @@ class categoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::whenSearch(request()->search)->paginate(20);
+        $categories = Category::
+        whenSearch(request()->search)->withCount('movies')->paginate(20);
         return view('dashboard.categories.index', compact('categories'));
     }
 

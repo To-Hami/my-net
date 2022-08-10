@@ -82,9 +82,47 @@
         $('.select2').select2({
             width: '100%',
 
-        })
-        ;
+        });
+
+        //image
+        $(".image").on('change', function () {
+            if (this.files && this.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+
+        });
+
+
+        //poster
+        $(".poster").on('change', function () {
+            if (this.files && this.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.poster-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+
+        });
+
+
+        //sidebar
+
+        $(".app-menu__item").on('click', function () {
+            $(this).addClass('active');
+        });
+
+
     });
+    @stack('scripts')
 </script>
 </body>
 </html>
