@@ -44,18 +44,18 @@
                             <button type="submit" class=" btn btn-primary  btn-block">Register</button>
                         </div>
 
-                        <hr>
+                        {{--                        <hr>--}}
 
-                        <p class="text-center">Already have an account <a class="text-primary"
-                                                                          href="{{route('login')}}">Login</a></p>
+                        {{--                        <p class="text-center">Already have an account <a class="text-primary"--}}
+                        {{--                                                                          href="{{route('login')}}">Login</a></p>--}}
 
-                        <a href="/login/facebook" class="btn btn-block text-white" style="background-color: #3B5998;">
-                            Login with
-                            facebook
-                        </a>
-                        <a href="/login/google" class="btn btn-block text-white" style="background-color:  #ea4335;">Login
-                            with Gmail
-                        </a>
+                        {{--                        <a href="/login/facebook" class="btn btn-block text-white" style="background-color: #3B5998;">--}}
+                        {{--                            Login with--}}
+                        {{--                            facebook--}}
+                        {{--                        </a>--}}
+                        {{--                        <a href="/login/google" class="btn btn-block text-white" style="background-color:  #ea4335;">Login--}}
+                        {{--                            with Gmail--}}
+                        {{--                        </a>--}}
 
 
                     </form>

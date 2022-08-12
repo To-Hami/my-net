@@ -23,7 +23,7 @@
                 @auth
                     <li class="nav-item mx-2">
                         <a href="{{route('movies.index',['favorite' => auth()->user()->id])}}"
-                           class="nav-link text-white" style="position:relative;">
+                           class="nav-link text-white mx-4" style="position:relative;width: 0">
                             <i class="fa fa-heart fa-2x"></i>
                             <span class="bg-primary text-white d-flex justify-content-center align-items-center"
                                   style="

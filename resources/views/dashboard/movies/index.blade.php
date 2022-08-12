@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group col-4 ">
                         <button type="submit" class="btn btn-primary"> Search <i class="fa fa-search"></i></button>
-                        <a href="{{route('dashboard.movies.create')}}" class="btn btn-primary"> Add
+                        <a href="{{route('dashboard.movies.create')}}" class="btn btn-primary disabled"> Add
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>

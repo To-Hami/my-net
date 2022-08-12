@@ -8,26 +8,31 @@
         </div>
     </div>
     <ul class="app-menu">
-        <li><a class="app-menu__item " href="{{route('dashboard.index')}}"><i
+
+        <li><a class="app-menu__item {{request()->routeIs('*/dashboard/dashboard*') ? 'active' : ''}} "
+               href="{{route('dashboard.index')}}"><i
                     class="app-menu__icon fa fa-dashboard"></i><span
                     class="app-menu__label">Dashboard</span>
             </a>
         </li>
 
-        <li><a class="app-menu__item " href="{{route('dashboard.categories.index')}}"><i
+        <li><a class="app-menu__item {{request()->routeIs('*categories*') ? 'active' : ''}}"
+               href="{{route('dashboard.categories.index')}}"><i
                     class="app-menu__icon fa fa-list"></i><span
                     class="app-menu__label">Categories</span>
             </a>
         </li>
 
-        <li><a class="app-menu__item " href="{{route('dashboard.movies.index')}}"><i
+        <li><a class="app-menu__item {{request()->routeIs('*movies*') ? 'active' : ''}} "
+               href="{{route('dashboard.movies.index')}}"><i
                     class="app-menu__icon fa fa-video"></i><span
                     class="app-menu__label">Movies</span>
             </a>
         </li>
 
         <li>
-            <a class="app-menu__item " href="{{route('dashboard.users.index')}}"><i
+            <a class="app-menu__item {{request()->routeIs('*users*') ? 'users' : ''}} "
+               href="{{route('dashboard.users.index')}}"><i
                     class="app-menu__icon fa fa-users"></i><span
                     class="app-menu__label">Users</span>
             </a>
@@ -35,7 +40,8 @@
 
 
         <li class="treeview">
-            <a class="app-menu__item" href="#" data-toggle="treeview">
+            <a class="app-menu__item {{request()->routeIs('*setting*') ? 'active' : ''}}"
+               href="#" data-toggle="treeview">
                 <i class="app-menu__icon fa fa-gear"></i>
                 <span class="app-menu__label">Setting</span>
                 <i class="treeview-indicator"></i>

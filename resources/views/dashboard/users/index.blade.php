@@ -53,13 +53,15 @@
                                 <td>{{$User->email}}</td>
                                 <td>
                                     <a href="{{route('dashboard.users.edit',$User->id)}}"
-                                       class="btn btn-primary"> <i class="fa fa-gear align-self-center"></i> Edit</a>
+                                       class="btn btn-primary disabled"> <i class="fa fa-gear align-self-center"></i>
+                                        Edit</a>
                                     <form action="{{route('dashboard.users.destroy',$User->id)}}"
                                           method="post" style="display: inline-block">
                                         @csrf
                                         @method('delete')
 
-                                        <button type="submit" class="delete btn btn-danger"><i class="fa fa-trash"></i>Delete
+                                        <button type="submit" class="delete btn btn-danger disabled"><i
+                                                class="fa fa-trash"></i>Delete
                                         </button>
 
                                     </form>

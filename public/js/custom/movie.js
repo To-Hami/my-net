@@ -37,6 +37,13 @@ $(document).ready(function () {
 
         favCount > 9 ? $('#nav__fav-icon').html('9+') : $('#nav__fav-icon').html(favCount);
 
+
+        if ($('.movie-' + movieId).closest('.favorite').length) {
+
+            $('.movie-' + movieId).closest('.movie').remove();
+        }
+
+
         $.ajax({
             url: url,
             method: 'POST',

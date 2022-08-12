@@ -52,13 +52,13 @@
                         <p class="text-center">Create an account <a class="text-primary"
                                                                     href="{{route('register')}}">Register</a></p>
 
-                        <a href="/login/facebook" class="btn btn-block text-white" style="background-color: #3B5998;">
-                            Login with
-                            facebook
-                        </a>
-                        <a href="/login/google" class="btn btn-block text-white" style="background-color:  #ea4335;">Login
-                            with Gmail
-                        </a>
+                        {{--                        <a href="/login/facebook" class="btn btn-block text-white" style="background-color: #3B5998;">--}}
+                        {{--                            Login with--}}
+                        {{--                            facebook--}}
+                        {{--                        </a>--}}
+                        {{--                        <a href="/login/google" class="btn btn-block text-white" style="background-color:  #ea4335;">Login--}}
+                        {{--                            with Gmail--}}
+                        {{--                        </a>--}}
 
 
                     </form>

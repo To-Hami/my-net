@@ -18,10 +18,30 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/easy-autocomplete.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/easy-autocomplete.themes.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.min.css')}}">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 
+
+    <style>
+        .fw-900 {
+            font-weight: 900;
+        }
+
+        .easy-autocomplete {
+            width: 80% !important;
+        }
+
+        .easy-autocomplete input {
+            color: white !important;
+        }
+
+        .eac-icon-left .eac-item img {
+            max-height: 80px !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -39,6 +59,7 @@
 <script src="{{asset('js/vendor.min.js')}}"></script>
 <script src="{{asset('js/main.min.js')}}"></script>
 <script src="{{asset('js/playerjs.js')}}"></script>
+<script src="{{asset('plugins/jquery.easy-autocomplete.min.js')}}"></script>
 <script src="{{asset('js/custom/movie.js')}}"></script>
 
 <script>
@@ -49,6 +70,29 @@
         }
 
     });
+
+
+    var options = {
+        url: function (search) {
+            return "/movies?search=" + search;
+        },
+        getValue: "name",
+        template: {
+            type: 'iconLeft',
+            fields: {
+                iconSrc: "poster_path"
+            }
+        },
+        list: {
+            onChooseEvent: function () {
+                var movie = $('.form-control[type="search"]').getSelectedItemData();
+                var url = window.location.origin + '/movies/' + movie.id;
+                window.location.replace(url);
+            }
+        }
+    };
+    $('.form-control[type="search"]').easyAutocomplete(options);
+
 
     $(document).ready(function () {
         $("#banner .movies").owlCarousel({
